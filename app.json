@@ -1,0 +1,6 @@
+{
+"name": "prueba-google",
+"description": "services rest for google home",
+"repository": "https://github.com/coomeva/PruebaGoogle.git",
+"keywords": ["api.ai", "dialogflow", "natural language"]
+}
