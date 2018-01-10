@@ -28,6 +28,41 @@ ServiceRest.post('/HomeRest', function(req, res){
     }
 });
 
+//creamos la funcion 
+function ConsultAssociate(speech3){
+  //creamos la promesa
+  return new Promise((resolve, reject) => {
+        //importanmos la dependencia http
+        var http = require('http');
+        //definimos el Host de nuestra api
+        var host = 'ec2-184-73-133-117.compute-1.amazonaws.com';
+        //definimos el puerto de la api, (si lo hay)
+        var port = '8080';
+        //identificamos el path de la api y le agregamos el valor del parametro que extraemos desde dialogflow
+        var path = '/consultacedula/services/rest/' + speech3;
+
+        //hacemos la peticion http.get
+        http.get({host: host, port: port, path: path}, (resp) =>{
+            var body = '';
+            resp.on('data', (d) => { 
+                body += d.toString();
+            });
+            resp.on('end', () => {
+                var respone = JSON.parse(body);
+                //capturamos el nombre del cliente que trae el rest
+                var name = respone.nameClient;   
+                //concatenamos la respuesta del rest, para crear la nueva respuesta
+                let output = 'welcome \n' + name + ' \n Coomeva closer to you ';
+                //enviamos la respuesta de nuestra promesa
+                resolve(output);
+            });
+            resp.on('error', (error) => {
+                reject(error);
+            });
+        });
+    });
+}
+
 ServiceRest.listen((process.env.PORT || 5040), function() {
 console.log('server listen in port:' + this.address().port);
 });
