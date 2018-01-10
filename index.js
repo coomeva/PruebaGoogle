@@ -22,7 +22,7 @@ ServiceRest.post('/HomeRest', function(req, res){
                     return res.json({
                         speech: speech5,
                         displayText: speech5,
-                        source: 'rest-for-googlehome'
+                        source: 'prueba-google'
                 });
         });
     }
