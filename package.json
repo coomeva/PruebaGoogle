@@ -1,5 +1,5 @@
 {
-  "name": "prueba-node",
+  "name": "prueba-google",
   "version": "1.0.0",
   "description": "services rest for google home",
   "main": "index.js",
