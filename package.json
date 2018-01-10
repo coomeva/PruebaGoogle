@@ -1,0 +1,14 @@
+{
+  "name": "prueba-node",
+  "version": "1.0.0",
+  "description": "services rest for google home",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "trinidad carabali",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
+  }
+}
